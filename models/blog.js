@@ -25,10 +25,10 @@ const blogSchema = new mongoose.Schema({
       ref: 'User',
       required: true
     },
-    date: {
-      type: date,
-      default: Date.now()
-    }
+    // date: {
+    //   type: date,
+    //   default: Date.now()
+    // }
 })
 
 blogSchema.set('toJSON', {
