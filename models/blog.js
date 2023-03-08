@@ -25,10 +25,10 @@ const blogSchema = new mongoose.Schema({
       ref: 'User',
       required: true
     },
-    // date: {
-    //   type: date,
-    //   default: Date.now()
-    // }
+    date: {
+      type: Date,
+      default: Date.now()
+    }
 })
 
 blogSchema.set('toJSON', {
@@ -36,6 +36,8 @@ blogSchema.set('toJSON', {
       returnedObject.id = returnedObject._id.toString()
       delete returnedObject._id
       delete returnedObject.__v
+      const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+      returnedObject.date = returnedObject.date.toLocaleString('fi-FI', options)
     },
 })
 
